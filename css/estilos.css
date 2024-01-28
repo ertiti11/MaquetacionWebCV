@@ -318,7 +318,6 @@ body {
   -moz-border-radius: 0 10rem 10rem 0;
   -ms-border-radius: 0 10rem 10rem 0;
   -o-border-radius: 0 10rem 10rem 0;
-  
 }
 /* el redondeo se ve de esta forma puesto que la caja layout__content está completa en azul y el redondeo viene en content_page */
 .content__page {
@@ -336,10 +335,24 @@ body {
   justify-content: center;
 }
 
+.typed_container{
+  display: flex;
+  align-items: center;
+  gap: .5em;
+}
+
+
+
 .page__name {
-  font-size: 6rem;
+  font-size: 7rem;
+  text-align: center;
   margin-bottom: 1rem;
-  color: var(--color-title);
+  background: #6633ee;
+  background: -webkit-linear-gradient(to right, #6633ee 18%, #002159 100%);
+  background: -moz-linear-gradient(to right, #6633ee 18%, #002159 100%);
+  background: linear-gradient(to right, #6633ee 18%, #002159 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .page__job {

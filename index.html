@@ -119,7 +119,10 @@
       <main class="layout__content">
         <section class="content__page">
           <h1 class="page__name">Adrián Prieto Vuosalmi</h1>
-          <h2 class="page__job" id="element">Desarrollador Web</h2>
+          <div class="typed_container">
+
+            <span class="page__job" id="element">Desarrollador Web</span>
+          </div>
         </section>
       </main>
     </div>
@@ -128,6 +131,7 @@
       var typed = new Typed("#element", {
         strings: ["Desarrollador Web", "Pentester"],
         typeSpeed: 50,
+        loop: true,
       });
     </script>
   </body>
