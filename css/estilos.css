@@ -89,6 +89,7 @@ label {
 /* Estilos Generales */
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 body {
   width: 100%;
@@ -132,14 +133,14 @@ body {
   width: 75%;
   height: 80vh; /* 80% sobre la altura del navegador */
 
-  min-height: 80vh;
-  margin: 10vh auto; /* 10vh es un margen del 10% por arriba y abajo */
+  min-height: 90vh;
+  margin: 5vh auto; /* 10vh es un margen del 10% por arriba y abajo */
   /*border: 1px solid red; */
 
   display: grid;
-  grid-template-areas: "aside content";
-  grid-template-columns: 30% 70%;
-
+  grid-template-columns: minmax(0,.2fr) repeat(3, minmax(0, 1fr));
+  grid-template-rows: minmax(0, .7fr) repeat(2, minmax(0, 1fr));
+  gap: 1em;
   border-radius: 4rem;
   -webkit-border-radius: 4rem;
   -moz-border-radius: 4rem;
@@ -150,25 +151,43 @@ body {
   box-shadow: 0px 0px 100px -5px rgba(0, 0, 0, 0.25);
 }
 
+
+.HeroContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
 /* barra lateral azul */
 .layout__aside {
-  grid-area: aside;
+  /* grid-area: aside; */
+  padding: 1em;
   border-radius: 4rem 0 0 4rem;
   -webkit-border-radius: 4rem 0 0 4rem;
   -moz-border-radius: 4rem 0 0 4rem;
   -ms-border-radius: 4rem 0 0 4rem;
   -o-border-radius: 4rem 0 0 4rem;
-
-  overflow: auto;
-  overflow-x: hidden; /* nos interesa por el responsivo */
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  overflow: hidden;
 }
 
 .aside__user-info {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  /* flex-direction: column; */
   align-items: center; /* posicionamos los elementos: posiciona los que funcionan como un bloque */
   text-align: center; /* posicionamos textos */
-
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
   min-height: 100%;
   min-width: 30rem;
 
@@ -179,13 +198,36 @@ body {
 
 .user-info__container-image {
   position: relative;
-  display: inline-block; /* display block se comporta como elemento en bloque y no tiene espacio entre los elementos, y con inline block si que existe este espacio entre los elementos. */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 18rem;
-  margin-top: 7rem;
+
 }
 
+.image_header::after{
+  content: "";
+  position: absolute;
+  top: 7%;
+  left: 28%;
+  width: 60%;
+  height: 60%;
+  border-radius: 30rem;
+  -webkit-border-radius: 30rem;
+  -moz-border-radius: 30rem;
+  -ms-border-radius: 30rem;
+  -o-border-radius: 30rem;
+  background-image: -webkit-repeating-radial-gradient(center center, var(--color-principal), var(--color-principal) 1px, transparent 0px, transparent 100%);
+  background-size: 0.6rem 0.6rem;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+
+
 .user-info__image {
-  width: 100%;
+  width: 120px;
   background-color: var(--color-principal);
   border: 3px solid var(--color-principal);
   border-radius: 20rem;
@@ -198,13 +240,12 @@ body {
 }
 /* agrego un contenido adicional para añadir un fondo de degradado de puntos de ahí el uso de ::after */
 /* sombra de puntitos: incluyendo contenido estético */
-.user-info__container-image::after {
-  content: "hola";
+/* .user-info__image::after {
   position: absolute;
   top: 5%;
   left: 9%;
-  width: 100%;
-  height: 100%;
+  width: 20px;
+  height: 20px;
   border-radius: 30rem;
   -webkit-border-radius: 30rem;
   -moz-border-radius: 30rem;
@@ -219,10 +260,10 @@ body {
     ),
     -moz-repeating-radial-gradient(center center, #fff, #fff 1px, transparent
           0px, transparent 100%);
-  background-size: 0.6rem 0.6rem;
+  background-size: 0.2rem 0.2rem;
   z-index: -1;
   opacity: 0.4;
-}
+} */
 
 .user-info__name {
   font-size: 3.2rem;
@@ -237,6 +278,9 @@ body {
 }
 
 .user-info__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 3.6rem;
 }
 
@@ -309,8 +353,12 @@ body {
 
 /* contenedor principal */
 .layout__content {
-  grid-area: content;
+  /* grid-area: content; */
   height: 100%;
+  grid-column-start: 2;
+  grid-column-end:5 ;
+  grid-row-start: 2;
+  grid-row-end: 4;
   min-height: 100%;
   background-color: var(--color-secondary);
   border-radius: 0 10rem 10rem 0;
@@ -354,7 +402,21 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: fadeUp 1s ease-out;
 }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
 .page__job {
   font-size: 2.1rem;
@@ -364,10 +426,17 @@ body {
 
 /* Menú navegación lateral */
 .layout__menu {
-  display: block;
-  position: absolute;
-  top: 0;
-  right: -105px;
+  display: grid;
+  /* position: absolute; */
+  
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  max-width: 4em;
+  /* top: 0; */
+  /* right: -105px; */
+  justify-self: center;
   margin-right: -2rem;
   min-width: 11rem;
   background-color: var(--color-transparent);
@@ -379,7 +448,7 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-principal);
-  width: 60%;
+  width: 70%;
   min-height: 32rem;
   padding: 2rem;
   box-shadow: 0 0 3rem -0.4rem rgba(0, 0, 0, 0.2);
@@ -411,6 +480,7 @@ body {
 }
 .menu__overlay {
   position: absolute;
+
   right: 0;
   margin-top: -3rem;
   opacity: 0;
