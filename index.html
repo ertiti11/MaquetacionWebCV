@@ -22,6 +22,14 @@
     <title>Maquetación Proyecto CV</title>
   </head>
   <body>
+    <div id="miPopup" style="display: none">
+      <div>
+        <h2>Gracias por descargar mi curriculum</h2>
+        <p>ahora abrelo</p>
+        <button id="cerrarPopup">Cerrar</button>
+      </div>
+    </div>
+
     <!-- layout principal. Usamos metodología BEM -->
     <div class="layout">
       <!-- barra lateral (info usuario). -->
@@ -66,23 +74,18 @@
         </ul>
       </nav>
       <aside class="layout__aside">
-        <div id="miPopup" style="display: none;">
-          <h2>Mi Popup</h2>
-          <p>Este es mi popup.</p>
-          <button id="cerrarPopup">Cerrar</button>
-        </div>
         <section class="aside__user-info">
           <!-- información general usuario -->
           <div class="user-info__general">
             <div class="user-info__container-image">
               <div class="image_header">
                 <img
-                src="img/default-user.jpg"
-                class="user-info__image"
-                alt="Foto de perfil"
-              />
+                  src="img/developer.jpg"
+                  class="user-info__image"
+                  alt="Foto de perfil"
+                />
               </div>
-              
+
               <div class="user-info__links">
                 <ul class="links__social">
                   <li class="social__option">
@@ -114,7 +117,7 @@
             <!-- link a redes sociales -->
 
             <!-- botón del curriculum -->
-            <div href="#abrirPopup" class="user-info__buttons">
+            <div id="abrirPopup" class="user-info__buttons">
               <a href="#" class="user-info__btn">Descargar CV</a>
             </div>
           </div>
@@ -136,16 +139,22 @@
         </section>
       </main>
     </div>
-    
+
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
       var typed = new Typed("#element", {
         strings: ["Desarrollador Web", "Pentester"],
         typeSpeed: 50,
         loop: true,
+        backSpeed: 50,
+        smartBackspace: true,
       });
     </script>
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.js"
+      integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
+      crossorigin="anonymous"
+    ></script>
     <script src="./js/map.js"></script>
   </body>
 </html>

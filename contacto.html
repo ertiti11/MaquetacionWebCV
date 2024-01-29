@@ -7,6 +7,13 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1"
     />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+
     <title>Portafolio - Adrián Prieto Vuosalmi</title>
     <link rel="icon" type="image/png" href="./img/icono.png" />
     <!-- estilos -->
@@ -71,11 +78,14 @@
           <!-- información general usuario -->
           <div class="user-info__general">
             <div class="user-info__container-image">
-              <img
-                src="img/default-user.jpg"
-                class="user-info__image"
-                alt="Foto de perfil"
-              />
+              <div class="image_header">
+                <img
+                  src="img/developer.jpg"
+                  class="user-info__image"
+                  alt="Foto de perfil"
+                />
+              </div>
+
               <div class="user-info__links">
                 <ul class="links__social">
                   <li class="social__option">
@@ -107,7 +117,7 @@
             <!-- link a redes sociales -->
 
             <!-- botón del curriculum -->
-            <div class="user-info__buttons">
+            <div id="abrirPopup" class="user-info__buttons">
               <a href="#" class="user-info__btn">Descargar CV</a>
             </div>
           </div>
@@ -178,6 +188,7 @@
                       />
                       <label for="email" class="form__label">Email</label>
                     </div>
+
                     <div class="form__group">
                       <input
                         type="text"
@@ -187,6 +198,16 @@
                         placeholder="Asunto"
                       />
                       <label for="subject" class="form__label">Asunto</label>
+                    </div>
+                    <div class="form__group">
+                      <input
+                        type="text"
+                        class="form__input"
+                        id="fecha"
+                        name="fecha"
+                      />
+
+                      <label for="subject" class="form__label">Fecha</label>
                     </div>
                   </section>
                   <section class="form__right">
@@ -214,5 +235,12 @@
     </div>
     <!-- propiedad defer para que el script se cargue cuando el html se haya cargado -->
     <script src="js/map.js" defer></script>
+    <script>
+      $(function () {
+        $("#fecha").datepicker({
+          dateFormat: "dd-mm-yy",
+        });
+      });
+    </script>
   </body>
 </html>

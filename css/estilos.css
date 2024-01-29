@@ -138,8 +138,8 @@ body {
   /*border: 1px solid red; */
 
   display: grid;
-  grid-template-columns: minmax(0,.2fr) repeat(3, minmax(0, 1fr));
-  grid-template-rows: minmax(0, .7fr) repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 0.2fr) repeat(3, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 0.7fr) repeat(2, minmax(0, 1fr));
   gap: 1em;
   border-radius: 4rem;
   -webkit-border-radius: 4rem;
@@ -151,15 +151,13 @@ body {
   box-shadow: 0px 0px 100px -5px rgba(0, 0, 0, 0.25);
 }
 
-
-.HeroContent{
+.HeroContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
-
 
 /* barra lateral azul */
 .layout__aside {
@@ -203,10 +201,46 @@ body {
   align-items: center;
   justify-content: center;
   width: 18rem;
-
+}
+.nav-menu {
+  display: none;
+  list-style: none;
+  padding: 0;
 }
 
-.image_header::after{
+.nav-toggle {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .nav-menu {
+    display: block;
+  }
+  .nav-toggle {
+    display: none;
+  }
+#myBtn {
+  position: fixed; /* Fixed/sticky position */
+  bottom: 10px; /* Place the button at the bottom of the page */
+  right: 50%; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: rgba(209, 209, 209, 0.901); /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 99999px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+#myBtn img {
+  width: 30px;
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+.image_header::after {
   content: "";
   position: absolute;
   top: 7%;
@@ -218,13 +252,52 @@ body {
   -moz-border-radius: 30rem;
   -ms-border-radius: 30rem;
   -o-border-radius: 30rem;
-  background-image: -webkit-repeating-radial-gradient(center center, var(--color-principal), var(--color-principal) 1px, transparent 0px, transparent 100%);
+  background-image: -webkit-repeating-radial-gradient(
+    center center,
+    var(--color-principal),
+    var(--color-principal) 1px,
+    transparent 0px,
+    transparent 100%
+  );
   background-size: 0.6rem 0.6rem;
   z-index: -1;
   opacity: 0.4;
 }
+#miPopup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#miPopup p{
+  text-align: center;
+}
+#miPopup button{
+  text-align: center;
+  border-radius: 15px;
+  padding: .5em;
+}
 
-
+#miPopup div {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  max-width: 500px; /* Puedes ajustar este valor a lo que necesites */
+}
 
 .user-info__image {
   width: 120px;
@@ -356,7 +429,7 @@ body {
   /* grid-area: content; */
   height: 100%;
   grid-column-start: 2;
-  grid-column-end:5 ;
+  grid-column-end: 5;
   grid-row-start: 2;
   grid-row-end: 4;
   min-height: 100%;
@@ -383,13 +456,11 @@ body {
   justify-content: center;
 }
 
-.typed_container{
+.typed_container {
   display: flex;
   align-items: center;
-  gap: .5em;
+  gap: 0.5em;
 }
-
-
 
 .page__name {
   font-size: 7rem;
@@ -416,8 +487,6 @@ body {
   }
 }
 
-
-
 .page__job {
   font-size: 2.1rem;
   font-weight: lighter;
@@ -428,7 +497,7 @@ body {
 .layout__menu {
   display: grid;
   /* position: absolute; */
-  
+
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;

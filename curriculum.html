@@ -64,11 +64,14 @@
               <!-- información general usuario -->
               <div class="user-info__general">
                 <div class="user-info__container-image">
-                  <img
-                    src="img/default-user.jpg"
-                    class="user-info__image"
-                    alt="Foto de perfil"
-                  />
+                  <div class="image_header">
+                    <img
+                      src="img/developer.jpg"
+                      class="user-info__image"
+                      alt="Foto de perfil"
+                    />
+                  </div>
+    
                   <div class="user-info__links">
                     <ul class="links__social">
                       <li class="social__option">
@@ -100,7 +103,7 @@
                 <!-- link a redes sociales -->
     
                 <!-- botón del curriculum -->
-                <div class="user-info__buttons">
+                <div id="abrirPopup" class="user-info__buttons">
                   <a href="#" class="user-info__btn">Descargar CV</a>
                 </div>
               </div>
@@ -113,7 +116,7 @@
           </aside>
         <!-- contenido principal -->
         <main class="layout__content">
-            <section class="content__page content__resume">
+            <section id="main" class="content__page content__resume">
                 <header class="resume__header">
                     <h1 class="resume__title">Curriculum</h1>
                 </header>
@@ -127,25 +130,25 @@
                             <article class="timelines__timeline">
                                 <header class="timeline__header">
                                     <h4 class="timeline_year">2022</h4>
-                                    <span class="timeline__company">Universidad Alfonso X</span>
+                                    <span class="timeline__company">Medac</span>
                                 </header>
                                 <div class="timeline__divider">
                                 </div>
                                 <div class="timeline__description">
-                                    <h3 class="timeline__title">MÁSTER UNIVERSITARIO EN FORMACIÓN DEL PROFESORADO DE EDUCACIÓN SECUNDARIA OBLIGATORIA Y BACHILLERATO, FORMACIÓN PROFESIONAL Y ENSEÑANZAS DE IDIOMAS</h3>
-                                    <p class="timeline__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nihil fuga harum ut, recusandae saepe natus.</p>
+                                    <h3 class="timeline__title">Grado superior en desarrollo web</h3>
+                                    <p class="timeline__text">Desarrollo de aplicaciones web frontend y backend</p>
                                 </div>
                             </article>
                             <article class="timelines__timeline">
                                 <header class="timeline__header">
                                     <h4 class="timeline_year">1995</h4>
-                                    <span class="timeline__company">Universidad de Málaga</span>
+                                    <span class="timeline__company">Escuela internacional de posgrados</span>
                                 </header>
                                 <div class="timeline__divider">
                                 </div>
                                 <div class="timeline__description">
-                                    <h3 class="timeline__title">ETSI Ingeniería Técnica Informática de Sistemas</h3>
-                                    <p class="timeline__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nihil fuga harum ut, recusandae saepe natus.</p>
+                                    <h3 class="timeline__title">Máster en dirección de ciberseguridad</h3>
+                                    <p class="timeline__text">Pentesting a aplicaciones web y zonas desmilitarizadas</p>
                                 </div>
                             </article>
                         </div>
@@ -163,19 +166,19 @@
                                 </div>
                                 <div class="timeline__description">
                                     <h3 class="timeline__title">Estudiante</h3>
-                                    <p class="timeline__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nihil fuga harum ut, recusandae saepe natus.</p>
+                                    <p class="timeline__text">Desarrollo de aplicaciones web frontend y backend</p>
                                 </div>
                             </article>
                             <article class="timelines__timeline">
                                 <header class="timeline__header">
                                     <h4 class="timeline_year">2001-2023</h4>
-                                    <span class="timeline__company">DEKRA</span>
+                                    <span class="timeline__company">GolfInSpain</span>
                                 </header>
                                 <div class="timeline__divider">
                                 </div>
                                 <div class="timeline__description">
                                     <h3 class="timeline__title">Jefe de Unidad</h3>
-                                    <p class="timeline__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nihil fuga harum ut, recusandae saepe natus.</p>
+                                    <p class="timeline__text">Desarrollo de aplicaciones web frontend y backend</p>
                                 </div>
                             </article>
                         </div>
@@ -280,8 +283,8 @@
                                 <img src="img/certificado-1.png" class="certificate__img" alt="">
                             </div>
                             <div class="certificate__content">
-                                <h4 class="certificate__title">Título certificado 1</h4>
-                                <span class="certificate__id">ID_Cert_1</span>
+                                <h4 class="certificate__title">EJPTv2</h4>
+                                <span class="certificate__id">E-learning security</span>
                                 <span class="certificate__date">10 de junio 2023</span>
                             </div>
                         </article>
@@ -290,15 +293,30 @@
                                 <img src="img/certificado-1.png" class="certificate__img" alt="">
                             </div>
                             <div class="certificate__content">
-                                <h4 class="certificate__title">Título certificado 2</h4>
-                                <span class="certificate__id">ID_Cert_2</span>
+                                <h4 class="certificate__title">OSCP</h4>
+                                <span class="certificate__id">Offensive security</span>
                                 <span class="certificate__date">10 de junio 2022</span>
                             </div>
                         </article>
                     </section>
                 </div>
             </section>
+            <button onclick="topFunction()" id="myBtn" title="Go to top">
+                <img src="./img/flecha.png" alt="" />
+              </button>
         </main>
     </div>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {});
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  <script src="./js/map.js"></script>
 </body>
 </html>
